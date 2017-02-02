@@ -91,3 +91,5 @@ ENV/
 # Ignore the env directory
 env/*
 
+# Ignore the Mako template cache
+template.cache
