@@ -1,10 +1,19 @@
 import cherrypy
-from myAppModule.handlers import home
+
+handler_name = ''
+
 
 class Root(object):
+
     def __init__(self):
-        self.home = home.Home()
+        # /home
+        from myAppModule.handlers.home import homeHandler
+        self.home = homeHandler
+        # /contact
+        from myAppModule.handlers.contact import contactHandler
+        self.contact = contactHandler
+    
     @cherrypy.expose
     def index(self):
-        raise cherrypy.HTTPRedirect('/home')
-
+        from myAppModule.handlers.home import handler_name
+        raise cherrypy.HTTPRedirect('/{0}'.format(handler_name))

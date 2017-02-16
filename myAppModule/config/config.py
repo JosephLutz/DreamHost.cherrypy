@@ -1,11 +1,31 @@
 import os
 
-MAKO_TEMPLATE_CACHE = os.path.join(os.getcwd(), 'template.cache')
-MAKO_TEMPLATE_PATHS = []
+# maximum cached templates per handler collection
+MAKO_TEMPLATE_COLLECTION_SIZE = 5
 
+MAKO_TEMPLATE_ENCODING = 'utf-8'
+
+MAKO_TEMPLATE_CACHE = os.path.join(os.getcwd(), 'template.cache')
 if not os.path.lexists(MAKO_TEMPLATE_CACHE):
     os.makedirs(MAKO_TEMPLATE_CACHE)
+
+MAKO_TEMPLATE_PATHS = [os.path.abspath(
+    os.path.join(__file__, '..', '..', 'common.templates')),
+]
 
 conf = {
 }
 
+global_conf = {
+    'global': {
+        'tools.encode.on': False,
+        'tools.sessions.on': True,
+        'tools.sessions.secure': True,
+        'tools.sessions.httponly': True,
+        # secureheaders tool
+        'tools.secureheaders.on': True,
+        # rendertemplate tool
+        'tools.rendertemplate.on': True,
+        'tools.rendertemplate.debug': False,
+    },
+}

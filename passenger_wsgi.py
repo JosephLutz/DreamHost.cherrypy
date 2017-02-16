@@ -43,6 +43,19 @@ logger.debug('\n'.join(out).format(
     ver=sys.version,
     prfx=sys.prefix))
 
+class StdLogger(object):
+    def __init__(self, logLevel):
+        self.logger = logging.getLogger(__name__)
+        self.logLevel = logLevel
+    def setLevel(self, logLevel):
+        self.logLevel = logLevel
+    def write(self, buf):
+        for line in buf.rstrip():
+            self.logger.log(self.logLevel, line)
+
+sys.stdout = StdLogger(logging.INFO)
+sys.stderr = StdLogger(logging.ERROR)
+
 # import web application
 sys.path.append(cwd)
 try:

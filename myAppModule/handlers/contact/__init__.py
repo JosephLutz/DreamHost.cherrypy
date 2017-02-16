@@ -3,14 +3,14 @@ import os
 # import the apps configuration
 from myAppModule import config
 
-
-
+# Register the Mako tool
+import myAppModule.tools.mako
 # Register the Secure Header tool
 import myAppModule.tools.secureheaders
 
 # import handler after initializing all the tools
-from root import Root
-from root import handler_name
+from contact import Contact
+from contact import handler_name
 
 # add a new template collection to the template_lookup plug-in
 from myAppModule.plugins.mako import template_collection
@@ -25,5 +25,5 @@ config.conf.update({
     },
 })
 
-# create the root handler object
-rootHandler = Root()
+# create a handler for /contact
+contactHandler = Contact()
