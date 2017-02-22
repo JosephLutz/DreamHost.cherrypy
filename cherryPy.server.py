@@ -95,6 +95,15 @@ if __name__ == "__main__":
                 'tools.staticdir.on': True,
                 'tools.staticdir.dir': 'js',
             },
+            '/tut': {
+                'tools.staticdir.on': True,
+                'tools.staticdir.dir': 'tut',
+            },
+            '/pages.html': {
+                'tools.staticfile.on': True,
+                'tools.staticfile.filename': os.path.join(cwd, 'public',
+                    'pages.html'),
+            },
         })
 
     # update the global config

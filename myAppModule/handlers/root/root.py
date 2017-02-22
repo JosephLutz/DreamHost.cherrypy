@@ -12,6 +12,9 @@ class Root(object):
         # /contact
         from myAppModule.handlers.contact import contactHandler
         self.contact = contactHandler
+        # /tut
+        from myAppModule.handlers.tut import tutHandler
+        self.tut = tutHandler
     
     @cherrypy.expose
     def index(self):
