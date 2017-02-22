@@ -87,6 +87,14 @@ if __name__ == "__main__":
                 'tools.staticdir.on': True,
                 'tools.staticdir.dir': 'images',
             },
+            '/css': {
+                'tools.staticdir.on': True,
+                'tools.staticdir.dir': 'css',
+            },
+            '/js': {
+                'tools.staticdir.on': True,
+                'tools.staticdir.dir': 'js',
+            },
         })
 
     # update the global config
