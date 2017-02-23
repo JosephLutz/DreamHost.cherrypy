@@ -33,3 +33,14 @@ application = cherrypy.Application(
 #            ('0.0.0.0', 8070), my_crazy_app,
 #            server_name='www.cherrypy.example')
 #server.start()
+
+
+
+
+
+#  # # from documentation
+#  # cherrypy.config.update({'engine.autoreload.on': False})
+#  # cherrypy.server.unsubscribe()
+#  # cherrypy.engine.start()
+#  # 
+#  # application = cherrypy.tree.mount(Root())

@@ -106,6 +106,18 @@ if __name__ == "__main__":
             },
         })
 
+    if config.config.USE_CHERRYPY_HTTPS:
+        # use SSL through cherrypy
+        config.global_conf.update({
+            'global': {
+                'tools.sessions.secure': True,
+                'server.ssl_module': 'builtin',
+                'server.ssl_certificate': "cert.pem",
+                'server.ssl_private_key': "privkey.pem",
+                # 'server.ssl_certificate_chain': "certchain.perm",
+            },
+        })
+
     # update the global config
     cherrypy.config.update(config.global_conf)
     # get the application instance

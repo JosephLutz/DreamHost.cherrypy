@@ -31,10 +31,3 @@ class Tut(object):
         # /tut/tut09
         from tut09 import tut09Handler
         self.tut09 = tut09Handler
-        # /tut/tut10
-        from tut10 import tut10Handler
-        self.tut10 = tut10Handler
-
-    #@cherrypy.expose
-    #def index(self):
-    #    raise cherrypy.HTTPRedirect('/{0}/page.html'.format(handler_name))

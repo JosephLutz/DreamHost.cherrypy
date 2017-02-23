@@ -9,8 +9,8 @@ from myAppModule import config
 
 
 # import handler after initializing all the tools
-from tut07 import Tut07
-from tut07 import handler_name
+from generator import StringGeneratorWebService
+from generator import handler_name
 
 
 
@@ -20,7 +20,7 @@ from tut07 import handler_name
 
 # set config options for /home handler
 config.conf.update({
-    '/tut/{0}'.format(handler_name): {
+    '/tut/tut09/{0}'.format(handler_name): {
         'request.dispatch': cherrypy.dispatch.MethodDispatcher(),
         # response_headers tool
         'tools.response_headers.on': True,
@@ -32,5 +32,5 @@ config.conf.update({
     },
 })
 
-# create a handler for /tut/tut07
-tut07Handler = Tut07()
+# create a handler for /tut/tut09/generator
+strGenHandler = StringGeneratorWebService()

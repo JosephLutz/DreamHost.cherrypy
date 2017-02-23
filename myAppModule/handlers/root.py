@@ -1,8 +1,5 @@
 import cherrypy
 
-handler_name = ''
-
-
 class Root(object):
 
     def __init__(self):
@@ -15,8 +12,11 @@ class Root(object):
         # /tut
         from myAppModule.handlers.tut import tutHandler
         self.tut = tutHandler
-    
+        # /registration
+        from myAppModule.handlers.registration import registrationHandler
+        self.registration = registrationHandler
+
     @cherrypy.expose
     def index(self):
-        from myAppModule.handlers.home import handler_name
-        raise cherrypy.HTTPRedirect('/{0}'.format(handler_name))
+        from myAppModule.handlers.home import handler_name as home_handler_name
+        raise cherrypy.HTTPRedirect('/{0}'.format(home_handler_name))

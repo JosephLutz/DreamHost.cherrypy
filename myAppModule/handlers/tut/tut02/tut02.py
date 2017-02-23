@@ -1,4 +1,6 @@
 import os
+import random
+import string
 
 import cherrypy
 
@@ -12,3 +14,7 @@ class Tut02(object):
         return {
             'msg': 'Tutorial 02'
         }
+
+    @cherrypy.expose
+    def generate(self):
+        return ''.join(random.sample(string.hexdigits, 8))

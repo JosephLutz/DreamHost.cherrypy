@@ -13,6 +13,9 @@ MAKO_TEMPLATE_PATHS = [os.path.abspath(
     os.path.join(__file__, '..', '..', 'common.templates')),
 ]
 
+USE_CHERRYPY_HTTPS = True
+USE_CHERRYPY_HTTPS = False
+
 conf = {
 }
 
@@ -20,7 +23,6 @@ global_conf = {
     'global': {
         'tools.encode.on': False,
         'tools.sessions.on': True,
-        'tools.sessions.secure': True,
         'tools.sessions.httponly': True,
         # secureheaders tool
         'tools.secureheaders.on': True,

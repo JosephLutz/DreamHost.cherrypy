@@ -1,0 +1,56 @@
+pip install requests
+
+
+
+
+import requests
+ses = requests.Session()
+url = 'http://127.0.0.1:8080/tut/tut07'
+
+res = ses.get(url)
+if (res.status_code is 500):
+    print('ERROR')
+else:
+    print('GET')
+
+res = ses.post(url)
+if (res.status_code is 200):
+    print('ERROR')
+else:
+    print('POST')
+
+print('TEXT: {0}'.format(res.text))
+
+res = ses.get(url)
+if not (res.status_code is 200):
+    print('ERROR')
+else:
+    print('GET')
+
+print('TEXT: {0}'.format(res.text))
+
+res = ses.get(url, headers={'Accept': 'application/json'})
+if (res.status_code is 406):
+    print('ERROR')
+else:
+    print('GET')
+
+res = ses.put(url, params={'another_string': 'hello'})
+print('PUT')
+
+res = ses.get(url)
+if (res.status_code is 200):
+    print('ERROR')
+else:
+    print('GET')
+
+print('TEXT: {0}'.format(res.text))
+
+res = ses.delete(url)
+print('DELETE')
+
+res = ses.get(url)
+if (res.status_code is 500):
+    print('ERROR')
+else:
+    print('GET')

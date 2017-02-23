@@ -1,4 +1,6 @@
 import os
+import random
+import string
 
 import cherrypy
 
@@ -12,3 +14,13 @@ class Tut06(object):
         return {
             'msg': 'Tutorial 06'
         }
+
+    @cherrypy.expose
+    def generate(self, length=8):
+        some_string = ''.join(random.sample(string.hexdigits, int(length)))
+        cherrypy.session['TUT06string'] = some_string
+        return some_string
+
+    @cherrypy.expose
+    def display(self):
+        return cherrypy.session['TUT06string']
