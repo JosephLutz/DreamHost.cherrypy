@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Form Registration</title>
+</head>
+
+<body>
+
+<form method="POST" action="/registration/">
+    <div>
+        ${ form.username.label }:
+        ${ form.username(class_="css_class") }
+    </div>
+% if form.username.errors:
+    <ul class="errors">
+%   for error in form.username.errors:
+        <li>${ error }</li>
+%   endfor
+    </ul>
+% endif
+
+    <div>
+        ${ form.email.label }:
+        ${ form.email(class_="css_class") }
+    </div>
+% if form.email.errors:
+    <ul class="errors">
+%   for error in form.email.errors:
+        <li>${ error }</li>
+%   endfor
+    </ul>
+% endif
+
+    <div>
+        ${ form.accept_rules.label }:
+        ${ form.accept_rules(class_="css_class") }
+    </div>
+% if form.accept_rules.errors:
+    <ul class="errors">
+%   for error in form.accept_rules.errors:
+        <li>${ error }</li>
+%   endfor
+    </ul>
+% endif
+    <button type="submit">Give it now!</button>
+</form>
+
+
+</body>
+</html>
+
